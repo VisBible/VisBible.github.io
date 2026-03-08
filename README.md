@@ -1,1 +1,2 @@
-# VisBible.github.io
+# VisBible
+

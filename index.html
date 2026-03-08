@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisBible — 聖經視覺化</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #f8f6f1;
+            --card-bg: #fff;
+            --accent: #8b6914;
+            --accent-light: #c9a227;
+            --text: #2c2c2c;
+            --text-muted: #5c5c5c;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --radius: 12px;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', 'Microsoft YaHei', '微軟正黑體', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .logo {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.02em;
+            margin-bottom: 8px;
+        }
+
+        .tagline {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .section-title {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent-light);
+        }
+
+        .cards {
+            display: grid;
+            gap: 24px;
+        }
+
+        .card {
+            display: block;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 28px 32px;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid rgba(139, 105, 20, 0.12);
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+        }
+
+        .card-title {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: var(--accent-light);
+        }
+
+        footer {
+            margin-top: 56px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header>
+            <h1 class="logo">VisBible</h1>
+            <p class="tagline">聖經視覺化工具</p>
+        </header>
+
+        <section>
+            <h2 class="section-title">專案與工具</h2>
+            <div class="cards">
+                <a href="KingsTimeline/index.html" class="card">
+                    <h3 class="card-title">King's Timeline — 聖經君王時序</h3>
+                    <p class="card-desc">以時間軸視覺化呈現以色列與猶大諸王的在位年代，以及同期先知，方便對照經文與歷史脈絡。</p>
+                    <span class="card-meta">前往時間軸 →</span>
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <p>VisBible · 以視覺方式探索聖經</p>
+        </footer>
+    </div>
+</body>
+</html>
