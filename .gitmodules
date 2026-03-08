@@ -1,0 +1,3 @@
+[submodule "KingsTimeline"]
+	path = KingsTimeline
+	url = https://github.com/VisBible/KingsTimeline.git
