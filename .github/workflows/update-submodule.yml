@@ -1,0 +1,43 @@
+# 當收到 KingsTimeline 的 dispatch 時，將 KingsTimeline submodule 更新到最新並 push
+name: Update KingsTimeline submodule
+
+on:
+  repository_dispatch:
+    types: [submodule-update]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository with submodules
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: true
+          fetch-depth: 0
+
+      - name: Update KingsTimeline submodule to latest
+        run: |
+          git submodule update --remote KingsTimeline
+
+      - name: Check for submodule changes
+        id: check
+        run: |
+          if git diff --quiet KingsTimeline; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push if submodule updated
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add KingsTimeline
+          git commit -m "chore: update KingsTimeline submodule to latest"
+          git push
